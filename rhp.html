@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing PasteHTML.com</title>
+  </head>
+  <body>
+    <div id='playground'>
+      nothing happened
+    </div>
+
+    <a href="web+experiment:whatever">whatever</a>
+
+    <script type="text/javascript">
+      var html = '';
+      if (navigator.registerProtocolHandler) {
+        html = 'supported';
+        navigator.registerProtocolHandler(
+            'web+experiment',
+            'http://pastehtml.com/raw/%s',
+            'pastehtml');
+      } else {
+        html = 'absent';
+      }
+      document.getElementById('playground').innerHTML = html;
+    </script>
+  </body>
+</html>
